@@ -1,7 +1,7 @@
 import React from 'react';
 import Tour from './Tour';
 
-const Tours = ({ tours }) => {
+const Tours = ({ tours,removeTour,resetTour }) => {
     return (
         <section>
             <div className='title'>
@@ -10,9 +10,10 @@ const Tours = ({ tours }) => {
             </div>
             <div>
                 {tours.map((tour) => {
-                    return <Tour key={tour.id} {...tour} />
+                    return <Tour key={tour.id} {...tour} removeTour={removeTour} />
                 })}
             </div>
+            <button className='reset-btn' onClick={()=>resetTour(tours.id)}>Reset List Tours</button>
         </section>
     );
 };
